@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>毛小孩の家 - 寵物美容工作室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #f7a072;
+      --primary-light: #fef5ed;
+      --accent-color: #ed6a5a;
+      --text-main: #4a3e3d;
+      --text-muted: #7d6b68;
+      --bg-color: #fcf9f2;
+      --card-bg: #ffffff;
+      --border-color: #fae3d9;
+      --shadow: 0 8px 24px rgba(149, 117, 96, 0.08);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding-bottom: 60px;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Hero Section */
+    header {
+      background: linear-gradient(135deg, #fff7f0 0%, #ffe8d6 100%);
+      padding: 40px 0 50px;
+      border-bottom: 2px dashed #fcd5ce;
+      position: relative;
+    }
+
+    .brand-title {
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #b55339;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .brand-subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .intro-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      margin-top: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .intro-desc {
+      font-size: 1.08rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .feature-tag {
+      background-color: var(--primary-light);
+      color: #c05c46;
+      border: 1px solid #ffd8be;
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .info-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      background-color: #fff9f5;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.98rem;
+    }
+
+    .info-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .info-label {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .phone-link {
+      color: var(--accent-color);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .phone-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+      font-size: 1.8rem;
+      color: #9c412b;
+      text-align: center;
+      margin: 45px 0 25px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title span {
+      position: relative;
+      background: var(--bg-color);
+      padding: 0 16px;
+      z-index: 1;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: #f0d5c8;
+      z-index: 0;
+    }
+
+    /* Middle Section: Price & Photos */
+    .grid-two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      align-items: start;
+    }
+
+    .media-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid #fae3d9;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(149, 117, 96, 0.12);
+    }
+
+    .card-header {
+      padding: 16px 20px;
+      background: #fff8f5;
+      border-bottom: 1px solid #fae3d9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-header h3 {
+      font-size: 1.2rem;
+      color: #9c412b;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background-color: #fafafa;
+    }
+
+    /* Bottom Section: Aftercare */
+    .aftercare-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .care-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 2px solid #ffd8be;
+    }
+
+    .care-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #ebd9d0;
+      padding-top: 25px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .brand-title {
+        font-size: 2rem;
+      }
+
+      .intro-card {
+        padding: 20px 16px;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+
+      .grid-two-col {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .info-bar {
+        grid-template-columns: 1fr;
+        padding: 14px;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 最上面放店名，和 about.txt 裡的介紹、營業時間、預約電話 -->
+  <header>
+    <div class="container">
+      <h1 class="brand-title">🐾 毛小孩の家</h1>
+      <p class="brand-subtitle">寵物美容工作室 ｜ 一對一放鬆預約制</p>
+
+      <div class="intro-card">
+        <p class="intro-desc">
+          我們是一間開在住宅區的小型寵物美容工作室，一次只接一隻，不關籠、不趕時間。<br>
+          怕生、年紀大、第一次美容的毛孩，都可以慢慢來。
+        </p>
+
+        <div class="features-list">
+          <span class="feature-tag">🐶 服務對象：小型犬、中大型犬、貓</span>
+          <span class="feature-tag">✨ 一對一美容、不關籠</span>
+          <span class="feature-tag">📷 美容過程可拍照回報給飼主</span>
+        </div>
+
+        <div class="info-bar">
+          <div class="info-item">
+            <span class="info-icon">🕒</span>
+            <div>
+              <span class="info-label">營業時間：</span><br>
+              週二到週日 10:00–19:00（週一公休）
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div>
+              <span class="info-label">預約電話：</span><br>
+              <a href="tel:0900000000" class="phone-link">0900-000-000</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">💬</span>
+            <div>
+              <span class="info-label">LINE 預約：</span><br>
+              <span>@maoxiaohai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 2. 中間放價目表和作品照 -->
+    <h2 class="section-title"><span>服務價目與美容精選</span></h2>
+    <div class="grid-two-col">
+      <div class="media-card">
+        <div class="card-header">
+          <span>📋</span>
+          <h3>價目表</h3>
+        </div>
+        <img src="price.png" alt="毛小孩の家 服務價目表" loading="lazy">
+      </div>
+
+      <div class="media-card">
+        <div class="card-header">
+          <span>✂️</span>
+          <h3>美容作品照</h3>
+        </div>
+        <img src="photo.png" alt="毛小孩の家 美容作品照" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 3. 下面放衛教卡，標題寫「美容後照護」 -->
+    <h2 class="section-title"><span>美容後照護</span></h2>
+    <div class="aftercare-container">
+      <div class="care-card">
+        <img src="care.png" alt="美容後照護 衛教卡" loading="lazy">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 毛小孩の家 寵物美容工作室 ｜ 課堂練習示範頁面</p>
+    </div>
+  </footer>
+
+</body>
+</html>
